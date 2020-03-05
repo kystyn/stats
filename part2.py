@@ -1,37 +1,9 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import scipy.stats as stats
-import seaborn as sns
-import math
-
-from prettytable import PrettyTable
 
 
 len_list = [10, 100, 1000]
 distr_type = ['Norm', 'Cauchy', 'Laplace', 'Poisson', 'Uniform']
-# distr_type = ['Norm']
-
-
-def get_quartil(distr, p):
-    n = len(distr)
-    sorted = np.sort(distr)
-    return sorted[int(np.floor(n * p) + np.ceil((n * p) - int(n * p)))]
-
-
-
-def get_distr_samples(d_name, num):
-    if d_name == 'Norm':
-        return np.random.normal(0, 1, num)
-    elif d_name == 'Cauchy':
-        return np.random.standard_cauchy(num)
-    elif d_name == 'Laplace':
-        return np.random.laplace(0, math.sqrt(2) / 2, num)
-    elif d_name == 'Poisson':
-        return np.random.poisson(10, num)
-    elif d_name == 'Uniform':
-        return np.random.uniform(-math.sqrt(3), math.sqrt(3), num)
-    return []
-
 
 
 

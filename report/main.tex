@@ -1,0 +1,79 @@
+\documentclass[14pt,a4paper,report]{ncc}
+\usepackage[a4paper, mag=1000, left=2.5cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks]{hyperref}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\linespread{1.3} 
+\renewcommand{\rmdefault}{gentium}
+
+\def\contentsname{Содержание}
+
+\begin{document}
+% Title page 
+\begin{titlepage}
+    \begin{center}
+        \textsc{
+            Санкт-Петербургский политехнический университет имени Петра Великого \\[5mm]
+            Институт прикладной математики и механики\\[2mm]
+            Высшая школа прикладной математики и физики            
+        }   
+        \vfill
+        \textbf{\large
+            Математическая статистика\\
+            Отчёт по лабораторной работе №1 \\[3mm]
+        }                
+    \end{center}
+
+    \vfill
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+        Выполнил: \\[2mm]   
+        Дамаскинский Константин
+    \end{minipage}
+
+    \vfill
+    \begin{center}
+        \theyear\ г.
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\input{content.tex}
+
+\end{document}
