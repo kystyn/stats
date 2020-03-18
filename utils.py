@@ -7,7 +7,7 @@ distributions = \
  'Laplace': lambda num: np.random.laplace(0, math.sqrt(2) / 2, num),
  'Poisson': lambda num: np.random.poisson(10, num),
  'Uniform': lambda num: np.random.uniform(-math.sqrt(3), math.sqrt(3), num)
-};
+}
 
 
 def get_distribution(distr_name, num):

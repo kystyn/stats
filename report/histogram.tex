@@ -1,14 +1,15 @@
 \section{Постановка задачи}
-Необходимо сгенерировать массивы данных для пяти распределений:
+Требуется сгенерировать наборы случайных точек для пяти распределений:
 \begin{itemize}
-\item нормальное распределение \( N(x, 0, 1) \)
-\item распределение Коши \( C(x, 0, 1) \)
-\item распределение Лапласа \( L(x, 0, 1/\sqrt{2}) \)
-\item распределение Пуассона \( P(k, 10) \)
-\item равномерное распределение \( U(x, -\sqrt{3}, \sqrt{3}) \)
+\item Нормальное распределение: $N(x, 0, 1)$
+\item Распределение Коши: $C(x, 0, 1)$
+\item Распределение Лапласа: $L(x, 0, \frac{1}{\sqrt{2}})$
+\item Распределение Пуассона: $P(k, 10)$
+\item Равномерное распределение: $U(x, -\sqrt{3}, \sqrt{3})$
 \end{itemize}
-Для каждого распределения массивы должны состоять из 10, 50, 1000 элементов. Построить гистограммы для полученных данных вместе с графиками функций плотности.
+Для каждого распределения наборы должны состоять из 10, 50, 1000 элементов. 
 
+Требуется построить гистограммы для полученных данных вместе с графиками функций плотности.
 
 
 \section{Теория}
@@ -16,13 +17,13 @@
 Плотность вероятности для нормального распределения (закона Гаусса):
 
 $
-  f(x, \mu, \sigma) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+  f(x, \mu, \sigma) = \frac{1}{{\sigma \sqrt {2\pi } }}e^\frac{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }
 $
  
-В нашем частном случае при \( \sigma = 1 \) и \( \mu = 0 \):
+При \( \sigma = 1 \) и \( \mu = 0 \):
 
 $
-  f(x, 0, 1) = \frac{1}{ \sqrt {2\pi } }e^{{{ -{x}^2 } \mathord{\left/ {\vphantom {{ -{x}^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2}}}
+  f(x, 0, 1) = \frac{1}{ \sqrt {2\pi } }e^{-\frac{{x}^2 }{2}}
 $
 
 
@@ -44,7 +45,7 @@ $$
 f(x, \beta, \alpha) = \frac{\alpha}{2} \, e^{-\alpha|x - \beta|}
 \end{equation}
 
-Для частного случая при \( \beta = 0 \) и \( \alpha = \frac{1}{\sqrt{2}} \):
+При \( \beta = 0 \) и \( \alpha = \frac{1}{\sqrt{2}} \):
 \begin{equation} 
 f(x, 0, \frac{1}{\sqrt{2}}) = \frac{1}{2\sqrt{2}} \, e^{-\frac{|x|}{\sqrt{2}}}
 \end{equation}
@@ -57,7 +58,7 @@ f(x, 0, \frac{1}{\sqrt{2}}) = \frac{1}{2\sqrt{2}} \, e^{-\frac{|x|}{\sqrt{2}}}
 f(k, \lambda) = \frac{\lambda^k}{k!}\, e^{-\lambda}
 \end{equation}
 
-Для частного случая при \( \lambda = 10 \):
+При \( \lambda = 10 \):
 \begin{equation} 
 f(k, 10) = \frac{10^k}{k!}\, e^{-10}
 \end{equation}
@@ -73,7 +74,7 @@ f(x, a, b) = \left\{
 \right..
 \end{equation}
 
-Для частного случая при \( a = -\sqrt{3} \) и \( b = \sqrt{3} \):
+При \( a = -\sqrt{3} \) и \( b = \sqrt{3} \):
 \begin{equation} 
 f(x, -\sqrt{3}, \sqrt{3}) = \left\{
 \begin{matrix}
@@ -88,44 +89,44 @@ f(x, -\sqrt{3}, \sqrt{3}) = \left\{
 \begin{itemize}
 \item Язык: Python
 \item Среда разработки: PyCharm
-\item Используемые библиотеки: NumPy, SciPy
+\item Используемые библиотеки: NumPy, Seaborn, SciPy
 \end{itemize}
 
 
 \section{Результаты}
-На следующих изображениях приведены графики плотности распределений (теоретические), гистограммы распределений сгенерированных значений, а также графики плотности распределений, полученных исходя из сгенерированных значений (темно зелёный график).
+На нижележащих рисунках изображены гистограммы распределений и теоретические функции плотности распределения
 
 \subsection{Нормальное распределение}
-\begin{figure}[H]
+\begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.7]{fig/Normal_distr.png}
+		\includegraphics[scale=0.5]{figure/normal.png}
 		\caption{Экспериментальные и теоретические данные для нормального распределения} 
-		\label{pic:pic_name} % название для ссылок внутри кода
+		\label{pic:pic_name}
 	\end{center}
 \end{figure}
 
 \subsection{Распределение Коши}
-\begin{figure}[H]
+\begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.7]{fig/Cauchy_distr.png}
+		\includegraphics[scale=0.7]{figure/cauchy.png}
 		\caption{Экспериментальные и теоретические данные для распределения Коши} 
 		\label{pic:pic_name} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
 
 \subsection{Распределение Лапласа}
-\begin{figure}[H]
+\begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.7]{fig/Laplace_distr.png}
+		\includegraphics[scale=0.7]{figure/laplace.png}
 		\caption{Экспериментальные и теоретические данные для распределения Лапласа} 
 		\label{pic:pic_name} % название для ссылок внутри кода
 	\end{center}
 \end{figure}
 
 \subsection{Распределение Пуассона}
-\begin{figure}[H]
+\begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.7]{fig/Poisson_distr.png}
+		\includegraphics[scale=0.7]{figure/poisson.png}
 		\caption{Экспериментальные и теоретические данные для распределения Пуассона} 
 		\label{pic:pic_name} % название для ссылок внутри кода
 	\end{center}
@@ -134,9 +135,9 @@ f(x, -\sqrt{3}, \sqrt{3}) = \left\{
 \subsection{Равномерное распределение}
 
 
-\begin{figure}[H]
+\begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.7]{fig/Uniform_distr.png}
+		\includegraphics[scale=0.7]{figure/uniform.png}
 		\caption{Экспериментальные и теоретические данные для равномерного распределения} 
 		\label{pic:pic_name}
 	\end{center}
@@ -158,7 +159,7 @@ f(x, -\sqrt{3}, \sqrt{3}) = \left\{
 
 \section{Приложения}
 
-Репозиторий с кодом программы и кодом отчёта: \href{https://github.com/unjamini/math-stat-lab}{https://github.com/unjamini/math-stat-lab}
+Репозиторий с кодом программы и кодом отчёта: \href{https://github.com/kystyn/stats}{https://github.com/kystyn/stats}
 
 
 

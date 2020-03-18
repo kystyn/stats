@@ -1,4 +1,4 @@
-\documentclass[14pt,a4paper,report]{ncc}
+\documentclass[14pt,a4paper,article]{ncc}
 \usepackage[a4paper, mag=1000, left=2.5cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
@@ -12,36 +12,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-
-\lstset{style=mystyle}
-
-\linespread{1.3} 
-\renewcommand{\rmdefault}{gentium}
-
-\def\contentsname{Содержание}
+\def\contentsname{Оглавление}
 
 \begin{document}
 % Title page 
@@ -74,6 +45,6 @@
 
 \tableofcontents
 
-\input{content.tex}
+\input{histogram.tex}
 
 \end{document}
