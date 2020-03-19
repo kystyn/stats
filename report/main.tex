@@ -4,15 +4,19 @@
 \usepackage[T2A]{fontenc}
 \usepackage[english,russian]{babel}
 \usepackage{indentfirst}
-\usepackage[dvipsnames]{xcolor}
+%\usepackage[dvipsnames]{xcolor}
 \usepackage[colorlinks]{hyperref}
 \usepackage{amsfonts} 
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figure/}}
+\DeclareGraphicsExtensions{.png,.jpg}
 
 \usepackage{listings}
-\usepackage{xcolor}
 
-\def\contentsname{Оглавление}
+\hypersetup{linkcolor=black}
+
 
 \begin{document}
 % Title page 
@@ -34,8 +38,16 @@
     \hfill
     \begin{minipage}{0.5\textwidth}
         Выполнил: \\[2mm]   
-        Дамаскинский Константин
+		Студент Дамаскинский Константин \\
+		Группа: 3630102/70201\\
     \end{minipage}
+
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		Принял: \\[2mm]
+		к. ф.-м. н., доцент \\   
+		Баженов Андрей Николаевич
+	\end{minipage}
 
     \vfill
     \begin{center}
@@ -44,7 +56,8 @@
 \end{titlepage}
 
 \tableofcontents
-
+\listoffigures
+\newpage
 \input{histogram.tex}
 
 \end{document}
