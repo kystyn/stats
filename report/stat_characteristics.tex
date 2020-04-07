@@ -1,5 +1,5 @@
 \section{Постановка задачи}
-Требуется сгенерировать наборы случайных точек для пяти распределений:
+Даны пять распределений:
 \begin{itemize}
 \item Нормальное распределение: $N(x, 0, 1)$
 \item Распределение Коши: $C(x, 0, 1)$
@@ -8,7 +8,7 @@
 \item Равномерное распределение: $U(x, -\sqrt{3}, \sqrt{3})$
 \end{itemize}
 
-Для каждого распределения сгенерировать выборки из 10, 100 и 1000 элементов. 
+Для каждого распределения требуется сгенерировать выборки из 10, 100 и 1000 элементов. 
 
 Требуется вычислить статистические характеристики положения:
 \begin{itemize}
@@ -17,11 +17,15 @@
 	\item $z_R, z_Q, z_{tr}$
 \end{itemize}
 
-Такие вычисления необходимо повторить 1000 раз и найти среднюю и дисперсию уже для этих характеристик:
+Такие вычисления необходимо повторить 1000 раз и найти среднее и дисперсию уже для этих характеристик:
 
-$E(z)=\overline{z}$
+\begin{equation}\label{ez}
+	E(z)=\overline{z}
+\end{equation}
 
-$D(z)=\overline{z^2}-\overline{z}^2$
+\begin{equation}\label{dz}
+	D(z)=\overline{z^2}-\overline{z}^2
+\end{equation}
 
 \section{Теория}
 
@@ -31,43 +35,55 @@ $D(z)=\overline{z^2}-\overline{z}^2$
 \begin{itemize}
 	\item Выборочное среднее
 	
-	$\overline{x}=\displaystyle \sum_{i=1}^{n} {x_i}$
+	\begin{equation}\label{mean}
+		\overline{x}=\displaystyle \sum_{i=1}^{n} {x_i}
+	\end{equation}
 	
 	\item Выборочная медиана
 	
-	$med x =
-	\begin{cases}
-		x_{l+1}, & n=2l + 1 \\
-		\frac{x_{l}+x_{l+1}}{2}, & n=2l
-	\end{cases}
-	$
-	
+	\begin{equation}\label{med}
+		med x =
+		\begin{cases}
+		x_{(l+1)}, & n=2l + 1 \\
+		\frac{x_{(l)}+x_{(l+1)}}{2}, & n=2l
+		\end{cases}
+	\end{equation}
+
 	\item Полусумма экстремальных выборочных элементов
-	
-	$z_R =\frac{x_{1}+x_{n}}{2}$
+
+	\begin{equation}\label{zr}	
+		z_R =\frac{x_{(1)}+x_{(n)}}{2}
+	\end{equation}
 	
 	\item Полусумма квартилей
 	
 	Выборочная квартиль порядка $p$ определяется как:
-	$z_p =
-	\begin{cases}
-	x_{[np]+1}, & np \in \mathbb{Q} \backslash \mathbb{Z} \\
-	x_{np}, & np \in \mathbb{Z}
-	\end{cases}
-	$
 	
-	$z_Q =\frac{z_{1/4}+z_{3/4}}{2}$
+	$$z_p =
+	\begin{cases}
+	x_{([np]+1)}, & np \in \mathbb{Q} \backslash \mathbb{Z} \\
+	x_{(np)}, & np \in \mathbb{Z}
+	\end{cases}
+	$$
+	
+	\begin{equation}\label{zq}
+		z_Q =\frac{z_{1/4}+z_{3/4}}{2}
+	\end{equation}
 	
 	\item Усечённое среднее
 	
-	$z_{tr}=\frac{1}{n-2r}\displaystyle \sum_{i=1}^{n-r} x_{i}, r \approx \frac{n}{4}$
+	\begin{equation}\label{tr_mean}
+		z_{tr}=\frac{1}{n-2r}\displaystyle \sum_{i=r+1}^{n-r} x_{(i)}, r \approx \frac{n}{4}
+	\end{equation}
 \end{itemize}
 
 \subsection{Характеристики рассеяния}
 \begin{itemize}
 	\item Дисперсия
 	
-	$D(X)=\frac{1}{n}\displaystyle \sum_{i=1}^{n}(x_i-\overline{x})^2$
+	\begin{equation}\label{disp}
+		D(X)=\frac{1}{n}\displaystyle \sum_{i=1}^{n}(x_i-\overline{x})^2
+	\end{equation}
 	
 \end{itemize}
 \section{Реализация}
@@ -76,52 +92,47 @@ $D(z)=\overline{z^2}-\overline{z}^2$
 Отчёт подготовлен с помощью компилятора pdflatex и среды разработки TeXStudio.
 
 \section{Результаты}
-На нижележащих рисунках изображены гистограммы распределений и теоретические функции плотности распределения
+Ниже представлены таблицы полученных характеристик положения заданных распределений и характеристик рассеяния для совокупности 1000 проведённых экспериментов
 
-\subsection{Нормальное распределение}
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{norm}
-		\caption{Гистограмма и плотность вероятности для нормального распределения} 
-		\label{pic:pic_name}
+		\input{table/normal.tex}
+		\caption{Нормальное распределение}
+		\label{tabl:tabl_name}
 	\end{center}
-\end{figure}
+\end{table}
 
-\subsection{Распределение Коши}
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{cauchy}
-		\caption{Гистограмма и плотность вероятности для распределения Коши} 
-		\label{pic:pic_name} 
+		\input{table/cauchy.tex}
+		\caption{Распределение Коши}
+		\label{tabl:tabl_name}
 	\end{center}
-\end{figure}
+\end{table}
 
-\subsection{Распределение Лапласа}
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{laplace}
-		\caption{Гистограмма и плотность вероятности для распределения Лапласа} 
-		\label{pic:pic_name} 
+		\input{table/laplace.tex}
+		\caption{Распределение Лапласа}
+		\label{tabl:tabl_name}
 	\end{center}
-\end{figure}
+\end{table}
 
-\subsection{Распределение Пуассона}
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{poisson}
-		\caption{Гистограмма и плотность вероятности для распределения Пуассона} 
-		\label{pic:pic_name} 
+		\input{table/poisson.tex}
+		\caption{Распределение Пуассона}
+		\label{tabl:tabl_name}
 	\end{center}
-\end{figure}
+\end{table}
 
-\subsection{Равномерное распределение}
-\begin{figure}[H]
+\begin{table}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{uniform}
-		\caption{Гистограмма и плотность вероятности для равномерного распределения} 
-		\label{pic:pic_name}
+		\input{table/uniform.tex}
+		\caption{Равномерное распределение}
+		\label{tabl:tabl_name}
 	\end{center}
-\end{figure}
+\end{table}
 
 
 \section{Обсуждение}
