@@ -1,3 +1,3 @@
-import part2
+import part3
 
-part2.lab2()
+part3.lab3()

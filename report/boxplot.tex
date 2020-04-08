@@ -12,115 +12,140 @@
 
 Построить для них боксплот Тьюки.
 
-Для каждого распределения требуется определить долю выбросов, сгенерировав выборку, соответствующую распределению, 1000 раз и вычислив среднюю долю выбросов, и сравнить с результатами, полученными теоретически.
+Для каждого распределения требуется:
+\begin{itemize}
+	\item Определить долю выбросов, сгенерировав выборку, соответствующую распределению, 1000 раз и вычислив среднюю долю выбросов
+	\item Сравнить с результатами, полученными теоретически
+\end{itemize}
 
 \section{Теория}
 
-Для того, чтобы анализировать получаемые данные, вводятся характеристики положения -- такие функции, которые различными способами усредняют данные и демонстрируют общие закономерности, и характеристики рассеяния -- это характеристики, которые показывают насколько данные разбросаны относительно своих характеристик положения.
+\section{Боксплот Тьюки}
+Самым простым средством, использующимся для визуального анализа статистических данных, является гистограмма. Однако она не всегда является удобной: по общему виду диаграммы зачастую бывает трудно понять, какими параметрами положения и рассеяния обладает исследуемое распределение.
 
-\subsection{Характеристики положения}
-\begin{itemize}
-	\item Выборочное среднее
-	
-	\begin{equation}\label{mean}
-		\overline{x}=\displaystyle \sum_{i=1}^{n} {x_i}
-	\end{equation}
-	
-	\item Выборочная медиана
-	
-	\begin{equation}\label{med}
-		med x =
-		\begin{cases}
-		x_{(l+1)}, & n=2l + 1 \\
-		\frac{x_{(l)}+x_{(l+1)}}{2}, & n=2l
-		\end{cases}
-	\end{equation}
+В связи с этим было разработано такое средство визуализации распределения, как \textit{боксплот Тьюки} -- это прямоугольник, вертикальные границы которого соответствуют нижнему и верхнему квартилям. Внутри него отображается вертикальная линия, соответствующая медиане. Также из этого ``ящика'' выходят усы, сонаправленные абсциссе. Их крайние точки соответствуют точкам, отстоящим от соответствующих квартилей на полтора межквартильных расстояния:
+\begin{equation}
+	X_1 = Q_1 - \frac{3}{2}(Q_3-Q_1)
+\end{equation}
 
-	\item Полусумма экстремальных выборочных элементов
+\begin{equation}
+	X_2 = Q_3 + \frac{3}{2}(Q_3-Q_1)
+\end{equation}
 
-	\begin{equation}\label{zr}	
-		z_R =\frac{x_{(1)}+x_{(n)}}{2}
-	\end{equation}
-	
-	\item Полусумма квартилей
-	
-	Выборочная квартиль порядка $p$ определяется как:
-	
-	$$z_p =
-	\begin{cases}
-	x_{([np]+1)}, & np \in \mathbb{Q} \backslash \mathbb{Z} \\
-	x_{(np)}, & np \in \mathbb{Z}
-	\end{cases}
-	$$
-	
-	\begin{equation}\label{zq}
-		z_Q =\frac{z_{1/4}+z_{3/4}}{2}
-	\end{equation}
-	
-	\item Усечённое среднее
-	
-	\begin{equation}\label{tr_mean}
-		z_{tr}=\frac{1}{n-2r}\displaystyle \sum_{i=r+1}^{n-r} x_{(i)}, r \approx \frac{n}{4}
-	\end{equation}
-\end{itemize}
+Они характеризуют меру рассеяния данных. Все данные, которые оказались за пределами усов, можно считать статистическими выбросами. Их отображают с помощью кружочков. Таким образом, мы можем легко оценить степень разброса и асимметрии данных.
 
-\subsection{Характеристики рассеяния}
-\begin{itemize}
-	\item Дисперсия
+По ординате боксплот можно располагать, например, таким образом, чтобы его средняя линия соответствовала количеству элементов, из которых составлена данная выборка. Можно также располагать несколько боксплотов друг над другом, чтобы визуально сравнивать полученные параметры распределений.
+
+\section{Вычисление вероятности выбросов}
+
+Выбросами считаются величины, удовлетворяющие условию:
+
+
+\begin{equation}
+\left[
+\begin{array}{c}
+x < X_1 \\
+x > X_2
+\end{array}
+\right.
+\end{equation}
+
+Для теоретических распределений эту величину можно получить аналитически:
+
+\begin{equation}\label{trashdata}
+P_{\text{в}}^{\text{Т}}=P(x<X_1 | x > X_2) = F_X(X_1) + 1 - F_X(X_2)
+\end{equation}
+
+где $F_X$ -- функция распределения.
+
+Для экспериментальных -- непосредственным вычислением: итерируясь по всем элементам сгенерированного распределения, увеличивать счётчик выбросов в соответствующем случае. В конце поделить полученное количество выбросов на общее число элементов в выборке.
 	
-	\begin{equation}\label{disp}
-		D(X)=\frac{1}{n}\displaystyle \sum_{i=1}^{n}(x_i-\overline{x})^2
-	\end{equation}
-	
-\end{itemize}
 \section{Реализация}
-Данная работа реализована на языке программирования Python с использованием IDE PyCharm и библиотеки NumPy в ОС Ubuntu 19.04.
+Данная работа реализована на языке программирования Python с использованием IDE PyCharm и библиотек NumPy, MatPlotLib в ОС Ubuntu 19.04.
 
 Отчёт подготовлен с помощью компилятора pdflatex и среды разработки TeXStudio.
 
 \section{Результаты}
+\subsection{Боксплот}
 Ниже представлены таблицы полученных характеристик положения заданных распределений и характеристик рассеяния для совокупности 1000 проведённых экспериментов
 
-\begin{table}[H]
+\begin{figure}[H]
 	\begin{center}
-		\input{table/normal_chars.tex}
+		\includegraphics[scale=0.5]{Normal_boxplot}
 		\caption{Нормальное распределение}
-		\label{tabl:tabl_name}
+		\label{pic:pic_name}
 	\end{center}
-\end{table}
+\end{figure}
 
-\begin{table}[H]
+
+\begin{figure}[H]
 	\begin{center}
-		\input{table/cauchy_chars.tex}
+		\includegraphics[scale=0.5]{Cauchy_boxplot}
 		\caption{Распределение Коши}
-		\label{tabl:tabl_name}
+		\label{pic:pic_name}
 	\end{center}
-\end{table}
+\end{figure}
 
-\begin{table}[H]
+
+\begin{figure}[H]
 	\begin{center}
-		\input{table/laplace_chars.tex}
+		\includegraphics[scale=0.5]{Laplace_boxplot}
 		\caption{Распределение Лапласа}
-		\label{tabl:tabl_name}
+		\label{pic:pic_name}
 	\end{center}
-\end{table}
+\end{figure}
 
-\begin{table}[H]
+\begin{figure}[H]
 	\begin{center}
-		\input{table/poisson_chars.tex}
+		\includegraphics[scale=0.5]{Poisson_boxplot}
 		\caption{Распределение Пуассона}
-		\label{tabl:tabl_name}
+		\label{pic:pic_name}
 	\end{center}
-\end{table}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{Uniform_boxplot}
+		\caption{Равномерное распределение}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+\subsection{Экспериментальная доля выбросов}
 
 \begin{table}[H]
 	\begin{center}
-		\input{table/uniform_chars.tex}
-		\caption{Равномерное распределение}
+		\input{table/trashdata.tex}
+		\caption{Экспериментальная доля выбросов}
 		\label{tabl:tabl_name}
 	\end{center}
 \end{table}
 
+
+\subsection{Теоретическая доля выбросов}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline			
+			Распределение & $P_{\text{в}}^{\text{Т}}$ (\ref{trashdata})
+			\\
+			\hline			
+			Normal & 0.007 \\
+			\hline
+			Cauchy & 0.156 \\
+			\hline
+			Laplace & 0.063 \\
+			\hline			
+			Poisson & 0.008 \\
+			\hline		
+			Uniform & 0 \\
+			\hline			
+		\end{tabular}
+		\caption{Теоретическая доля выбросов}
+		\label{tabl:tabl_name}
+	\end{center}
+\end{table}
 
 \section{Обсуждение}
 
