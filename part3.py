@@ -7,12 +7,12 @@ def lab3():
     texfile = open('report/table/trashdata.tex', 'w')
     table = []
 
-    for dist_name in distributions.keys():
+    for dist_name in distr_samples.keys():
         fig, ax = plt.subplots(1, 1)
-        bp_data = [get_distribution(dist_name, length) for length in len_list]
+        bp_data = [get_distribution_sample(dist_name, length) for length in len_list]
         trashdata_part = [0] * len(bp_data)
         for idx in range(1000):
-            data = [get_distribution(dist_name, length) for length in len_list]
+            data = [get_distribution_sample(dist_name, length) for length in len_list]
             for datum in data:
                 datum_sorted = np.sort(datum)
                 q1 = get_quartil(datum_sorted, 0.25)

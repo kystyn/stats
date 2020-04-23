@@ -7,7 +7,7 @@ from utils import *
 def gen_table():
     tables = []
     len_list = [10, 100, 1000]
-    for dist_name in distributions.keys():
+    for dist_name in distr_samples.keys():
         table = []
         for d_num in len_list:
             mean = []
@@ -16,7 +16,7 @@ def gen_table():
             z_q = []
             z_tr = []
             for it in range(1000):
-                sample_d = get_distribution(dist_name, d_num)
+                sample_d = get_distribution_sample(dist_name, d_num)
                 sample_d_sorted = np.sort(sample_d)
                 mean.append(np.mean(sample_d))
                 med.append(np.median(sample_d))

@@ -11,9 +11,9 @@ from utils import *
 
 def gen_distr_histogram(name: str, pdf, grid, title: str, figName: str):
     x = np.linspace(grid[0], grid[1], 1000)
-    distr_10 = utils.get_distribution(name, 10)
-    distr_50 = utils.get_distribution(name, 50)
-    distr_1000 = utils.get_distribution(name, 1000)
+    distr_10 = utils.get_distribution_sample(name, 10)
+    distr_50 = utils.get_distribution_sample(name, 50)
+    distr_1000 = utils.get_distribution_sample(name, 1000)
 
     f = plt.figure(1, figsize=(9, 3))
     plt.subplot(1, 3, 1)
