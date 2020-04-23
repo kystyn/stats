@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.synctex*
+*.dvi
+*.png
+*.toc
+*.lof
+*.lot
+*.out
+*.pdf
+__pycache__

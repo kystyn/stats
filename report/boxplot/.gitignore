@@ -1,0 +1,4 @@
+*
+!*.tex
+*.png
+__pycache__

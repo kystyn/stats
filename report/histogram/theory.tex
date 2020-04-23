@@ -1,0 +1,76 @@
+\section{Теория}
+\subsection{Распределения}
+\begin{itemize}
+\item{Нормальное распределение}
+Плотность вероятности для нормального распределения (закона Гаусса):
+
+\begin{equation}
+  f(x, \mu, \sigma) = \frac{1}{{\sigma \sqrt {2\pi } }}e^-\frac{ \left( {x - \mu } \right)^2 } {2\sigma ^2 }
+\end{equation}
+ \\
+
+При \( \sigma = 1 \) и \( \mu = 0 \):
+
+\begin{equation}
+  f(x, 0, 1) = \frac{1}{ \sqrt {2\pi } }e^{-\frac{{x}^2 }{2}}
+\end{equation}
+
+
+\item{Распределение Коши}
+Плотность вероятности для распределения Коши:
+$$
+f(x, {x_0}, \gamma) =  \frac{1}{\pi\gamma \left[1 + \left(\frac{x-x_0}{\gamma}\right)^2\right]}
+$$
+
+При \( \gamma = 1 \) и \( x_0 = 0 \):
+$$
+f(x, 0, 1) =  \frac{1}{\pi \left[1 + {x}^2\right]}
+$$
+
+
+\item{Распределение Лапласа}
+Плотность вероятности для распределения Лапласа:
+\begin{equation} 
+f(x, \beta, \alpha) = \frac{\alpha}{2} \, e^{-\alpha|x - \beta|}
+\end{equation}
+
+При \( \beta = 0 \) и \( \alpha = \frac{1}{\sqrt{2}} \):
+\begin{equation} 
+f(x, 0, \frac{1}{\sqrt{2}}) = \frac{1}{2\sqrt{2}} \, e^{-\frac{|x|}{\sqrt{2}}}
+\end{equation}
+
+
+\item{Распределение Пуассона}
+
+Плотность вероятности для распределения Пуассона:
+\begin{equation} 
+f(k, \lambda) = \frac{\lambda^k}{k!}\, e^{-\lambda}
+\end{equation}
+
+При \( \lambda = 10 \):
+\begin{equation} 
+f(k, 10) = \frac{10^k}{k!}\, e^{-10}
+\end{equation}
+
+\item{Равномерное распределение}
+Плотность вероятности для равномерного распределения:
+\begin{equation} 
+f(x, a, b) = \left\{
+\begin{matrix}
+{1 \over b-a}, & x\in [a,b] \\
+0, & x\not\in [a,b]
+\end{matrix}
+\right..
+\end{equation}
+
+При \( a = -\sqrt{3} \) и \( b = \sqrt{3} \):
+\begin{equation} 
+f(x, -\sqrt{3}, \sqrt{3}) = \left\{
+\begin{matrix}
+{1 \over 2\sqrt{3}}, & x\in [-\sqrt{3},\sqrt{3}] \\
+0, & x\not\in [-\sqrt{3},\sqrt{3}]
+\end{matrix}
+\right..
+\end{equation}
+
+\end{itemize}
