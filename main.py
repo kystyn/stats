@@ -1,11 +1,6 @@
-import part3
+import part4
 import utils
 import numpy as np
 
-d = np.sort(utils.get_distribution_sample('Normal', 100))
-s = 0
-for i in d:
-    s += i
-print(s)
 
-#part3.lab3()
+part4.lab4()

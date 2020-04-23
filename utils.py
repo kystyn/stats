@@ -1,6 +1,7 @@
 import numpy as np
 import math
 import scipy.stats as stats
+from scipy.special import factorial
 
 distr_samples = \
 {
@@ -25,7 +26,7 @@ distr_pdf = \
     'Normal': lambda x: stats.norm.pdf(x, 0, 1),
     'Cauchy': lambda x: stats.cauchy.pdf(x, 0, 1),
     'Laplace': lambda x: stats.laplace.pdf(x, 0, math.sqrt(2) / 2),
-    'Poisson': lambda x: stats.poisson.pdf(x, 10),
+    'Poisson': lambda x: np.exp(-10) * np.power(10, x) / factorial(x),
     'Uniform': lambda x: stats.uniform.pdf(x, -math.sqrt(3), 2 * math.sqrt(3))
 }
 

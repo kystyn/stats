@@ -20,13 +20,13 @@ def cdf_plots():
             samples[i] = get_distribution_sample(dist_name, len_list[i])
             ecdf = sm.distributions.ECDF(samples[i])
             y = ecdf(x)
-            ax[i].plot(x, y, color='m', label='Empirical distribution function')
+            ax[i].plot(x, y, color='red', label='Empirical CDF')
             y = get_distribution_cdf(x, dist_name)
-            ax[i].plot(x, y, color='orange', label='Distribution function')
+            ax[i].plot(x, y, color='green', label='True CDF')
             ax[i].set_title(dist_name + '\n n = ' + str(len_list[i]))
         plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., prop={'size': 6})
         plt.show()
-        fig.savefig(dist_name + '_cdf.png', dpi=400)
+        fig.savefig('report/figure/cdf/' + dist_name + '_cdf.png', dpi=400)
 
 
 def kde_plots():
@@ -45,24 +45,25 @@ def kde_plots():
             kde = stats.gaussian_kde(samples)
             kde.set_bandwidth(bw_method='silverman')
             h_n = kde.factor
-            sns.kdeplot(samples, ax=ax[0], bw=h_n/2, color='m')
+
             ax[0].set_title(r'$h = \frac{h_n}{2}$')
-            ax[0].plot(x, y, color='orange')
-            ax[1].plot(x, y, color='orange')
-            ax[2].plot(x, y, color='orange', label='Real density function')
-            sns.kdeplot(samples, ax=ax[1], bw=h_n, color='m')
+            ax[0].plot(x, y, color='green')
+            sns.kdeplot(samples, ax=ax[0], bw=h_n / 2, color='red')
+
             ax[1].set_title(r'$h = h_n$')
-            sns.kdeplot(samples, ax=ax[2], bw=2*h_n, color='m', label='Kernel density estimation')
-            ax[2].set_title(r'$h = 2 * h_n$')
+            ax[1].plot(x, y, color='green')
+            sns.kdeplot(samples, ax=ax[1], bw=h_n, color='red')
+
+            ax[2].set_title(r'$h = 2h_n$')
+            ax[2].plot(x, y, color='green', label='True PDF')
+            sns.kdeplot(samples, ax=ax[2], bw=2*h_n, color='red', label='KDE')
+
             fig.suptitle(dist_name + ' n = ' + str(len_list[i]))
             plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., prop={'size': 6})
             plt.show()
-            fig.savefig(dist_name + str(len_list[i]) + '_kde.png', dpi=200)
+            fig.savefig('report/figure/kde/' + dist_name + str(len_list[i]) + '_kde.png', dpi=400)
 
 
 def lab4():
     cdf_plots()
     kde_plots()
-
-
-lab4()

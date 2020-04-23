@@ -1,4 +1,4 @@
 report/*
-!report/**.tex
+!report/*.tex,report/table/*.tex
 *.png
 __pycache__

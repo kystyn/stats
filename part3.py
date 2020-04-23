@@ -27,6 +27,6 @@ def lab3():
 
         ax.set_title(dist_name + ' distribution')
         ax.boxplot(bp_data, vert=False, positions=len_list, widths=[35, 35])
-        plt.savefig('report/figure/' + dist_name + '_boxplot.png', dpi=600)
+        plt.savefig('report/figure/boxplot/' + dist_name + '_boxplot.png', dpi=600)
 
     table_to_tex(texfile, table, '\hline\n Выборка & Доля выбросов\\\\' + '\n')

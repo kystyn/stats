@@ -44,7 +44,7 @@ def gen_table():
 def lab2():
     tables = gen_table()
     for table in tables:
-        table_to_tex(open('report/table/' + table[0].lower() + '.tex', 'w'), table[1],
+        table_to_tex(open('report/table/chars/' + table[0].lower() + '.tex', 'w'), table[1],
                      '\hline\n & $\overline{x}$ (\\ref{mean}) & $med x$ (\\ref{med})'
                      ' & $z_R$ (\\ref{zr}) & $z_Q$ (\\ref{zq}) & $z_{tr}$ (\\ref{tr_mean})\\\\' + '\n'
                      )

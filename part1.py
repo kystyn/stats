@@ -36,8 +36,9 @@ def gen_distr_histogram(name: str, pdf, grid, title: str, figName: str):
 
 
 def lab1():
-    gen_distr_histogram('Normal', stats.norm.pdf, (-10, 10), 'Нормальное', 'norm.png')
-    gen_distr_histogram('Cauchy', stats.cauchy.pdf, (-100, 100), 'Коши', 'cauchy.png')
-    #gen_distr_histogram('Laplace', stats.laplace.pdf, (-10, 10), 'Лапласа', 'laplace.png')
-    #gen_distr_histogram('Poisson', lambda x: np.exp(-10) * np.power(10, x) / factorial(x), (0, 30), 'Пуассона', 'poisson.png')
-    #gen_distr_histogram('Uniform', lambda x: stats.uniform.pdf(x, loc=-math.sqrt(3), scale=2*math.sqrt(3)), (-10, 10), 'Равномерное', 'uniform.png')
+    gen_distr_histogram('Normal', stats.norm.pdf, (-10, 10), 'Нормальное', 'report/figure/hist/Normal_hist.png')
+    gen_distr_histogram('Cauchy', stats.cauchy.pdf, (-100, 100), 'Коши', 'report/figure/hist/Cauchy_hist.png')
+    gen_distr_histogram('Laplace', stats.laplace.pdf, (-10, 10), 'Лапласа', 'report/figure/hist/Laplace_hist.png')
+    gen_distr_histogram('Poisson', lambda x: np.exp(-10) * np.power(10, x) / factorial(x), (0, 30), 'Пуассона',
+                        'report/figure/hist/Poisson_hist.png')
+    gen_distr_histogram('Uniform', lambda x: stats.uniform.pdf(x, loc=-math.sqrt(3), scale=2*math.sqrt(3)), (-10, 10), 'Равномерное', 'uniform.png')
