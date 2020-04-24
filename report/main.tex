@@ -13,6 +13,11 @@
 \graphicspath{{figure/}}
 \DeclareGraphicsExtensions{.png,.jpg}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot{}
+
 \usepackage{listings}
 
 \hypersetup{linkcolor=black}
@@ -30,7 +35,7 @@
         \vfill
         \textbf{\large
             Математическая статистика\\
-            Отчёт по лабораторной работам №№1-4 \\[3mm]
+            Отчёт по лабораторной работе №4 \\[3mm]
         }                
     \end{center}
 
@@ -60,27 +65,41 @@
 \listoftables
 \newpage
 
+\section{Постановка задачи}
+\input{problem_common.tex}
+\begin{enumerate}
 \input{histogram/problem.tex}
 \input{stat_chars/problem.tex}
 \input{boxplot/problem.tex}
 \input{kde/problem.tex}
+\end{enumerate}
 
+\section{Теория}
 \input{histogram/theory.tex}
 \input{stat_chars/theory.tex}
 \input{boxplot/theory.tex}
 \input{kde/theory.tex}
 
-
 \input{impl.tex}
 
+\section{Результаты}
 \input{histogram/results.tex}
 \input{stat_chars/results.tex}
 \input{boxplot/results.tex}
 \input{kde/results.tex}
 
+\section{Обсуждение}
+
+\subsection{Гистограммы}
 \input{histogram/discuss.tex}
+
+\subsection{Характеристики положения и рассеяния}
 \input{stat_chars/discuss.tex}
+
+\subsection{Боксплот Тьюки}
 \input{boxplot/discuss.tex}
+
+\subsection{Эмпирическая функция распределения. Ядерные оценки плотности}
 \input{kde/discuss.tex}
 
 \input{literature.tex}

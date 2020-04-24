@@ -43,26 +43,20 @@ F^*(x)=P^*(X \leq x) = \displaystyle \frac{1}{n}\sum_{z_i \leq x}{n_i}
 \end{equation}
 
 Здесь $K(u)$ -- ядро: функция, обладающая свойствами:
-\begin{enumerate}
-	\item \begin{equation}K \in L^1 \end{equation}
-	\item \begin{equation}K(u) \geq 0 \end{equation}   
-	\item \begin{equation}|K\|_{L^1}=1\end{equation} \label{kde_norm}
-\end{enumerate}
+	\begin{equation} \label{eq:1} K \in L^1 \end{equation}		
+	\begin{equation} \label{eq:2} K(u) \geq 0 \tag{\ref{eq:1}'} \end{equation}   
+	\begin{equation} \label{eq:3} \|K\|_{L^1}=1 \tag{\ref{eq:1}''} \end{equation} \label{kde_norm}
 
-Эти требования также будут выполнены и для описанной суммы: 1 -- поскольку $L^1$ -- линейное пространство, 2 -- очевидно, 3 -- по свойствам нормы. Таким образом, $\hat{f}$ удовлетворяет определению плотности вероятности.
+Эти требования также будут выполнены и для описанной суммы: ~\eqref{eq:1} -- поскольку $L^1$ -- линейное пространство, ~\eqref{eq:2} -- очевидно, 3 -- по свойствам нормы. Таким образом, $\hat{f}$ удовлетворяет определению плотности вероятности.
 
 Число $h_n$ называется шириной полосы пропускания.
 Последовательность $\{h_n\}_{n \in \mathbb{N}}$ должна удовлетворять следующим условиям:
-\begin{enumerate}
-\item 
-	\begin{equation}
+	\begin{equation}\label{eq:4}
 	h_n \underset{n \rightarrow \infty}{\longrightarrow} 0
 	\end{equation}
-\item 
-	\begin{equation}
-	\frac{h_n}{n^{-1}} \underset{n \rightarrow \infty}{\longrightarrow} \infty
+	\begin{equation}\label{eq:5}
+	\frac{h_n}{n^{-1}} \underset{n \rightarrow \infty}{\longrightarrow} \infty \tag{\ref{eq:4}'}
 	\end{equation}
-\end{enumerate}
 
 При выполнении всех условий данные оценки называются ядерными.
 
