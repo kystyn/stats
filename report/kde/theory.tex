@@ -1,4 +1,4 @@
-\subsection{Эмперическая функция распределения}
+\subsection{Эмпирическая функция распределения}
 \subsubsection{Статистический ряд}	Статистический ряд -- это упорядоченная по возрастанию последовательность \textit{различных} элементов выборки $\{z_i\}_{i = \overline{1,k}}$ с  указанием частот $\{n_i\}_{i = \overline{1,k}}$, с которыми элементы с соответствующим индексом встречаются в исходной выборке.
 
 \begin{tabular}{|c|c|c|c|c|}
@@ -43,20 +43,25 @@ F^*(x)=P^*(X \leq x) = \displaystyle \frac{1}{n}\sum_{z_i \leq x}{n_i}
 \end{equation}
 
 Здесь $K(u)$ -- ядро: функция, обладающая свойствами:
-	\begin{equation} \label{eq:1} K \in L^1 \end{equation}		
-	\begin{equation} \label{eq:2} K(u) \geq 0 \tag{\ref{eq:1}'} \end{equation}   
-	\begin{equation} \label{eq:3} \|K\|_{L^1}=1 \tag{\ref{eq:1}''} \end{equation} \label{kde_norm}
 
-Эти требования также будут выполнены и для описанной суммы: ~\eqref{eq:1} -- поскольку $L^1$ -- линейное пространство, ~\eqref{eq:2} -- очевидно, 3 -- по свойствам нормы. Таким образом, $\hat{f}$ удовлетворяет определению плотности вероятности.
+\begin{subequations}\label{eq:subeqns}
+\begin{align}
+	K \in L^1 \label{eq:subeq1} \\
+	K(u) \geq 0 \label{eq:subeq2} \\
+	\|K\|_{L^1}=1 \label{eq:subeq3}
+\end{align}
+\end{subequations}
+Эти требования также будут выполнены и для описанной суммы: ~\eqref{eq:subeq1} -- поскольку $L^1$ -- линейное пространство, ~\eqref{eq:subeq2} -- как сумма неотрицательных чисел, ~\eqref{eq:subeq3} -- по свойствам нормы. Таким образом, $\hat{f}$ удовлетворяет определению плотности вероятности.
 
 Число $h_n$ называется шириной полосы пропускания.
 Последовательность $\{h_n\}_{n \in \mathbb{N}}$ должна удовлетворять следующим условиям:
-	\begin{equation}\label{eq:4}
-	h_n \underset{n \rightarrow \infty}{\longrightarrow} 0
-	\end{equation}
-	\begin{equation}\label{eq:5}
-	\frac{h_n}{n^{-1}} \underset{n \rightarrow \infty}{\longrightarrow} \infty \tag{\ref{eq:4}'}
-	\end{equation}
+
+\begin{subequations}\label{eq:subeqns}
+\begin{align}
+	h_n \underset{n \rightarrow \infty}{\longrightarrow} 0\\% \label{eq:4} \\
+	\frac{h_n}{n^{-1}} \underset{n \rightarrow \infty}{\longrightarrow} \infty% \label{eq:5}
+\end{align}
+\end{subequations}
 
 При выполнении всех условий данные оценки называются ядерными.
 

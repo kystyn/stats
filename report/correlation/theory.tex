@@ -1,0 +1,33 @@
+\subsection{Двумерное нормальное распределение}
+
+Двумерная случайная величина называется нормально распределённой, если её плотность вероятности определена следующим образом:
+\begin{multline}
+	N(x, y, \overline{x}, \overline{y}, \sigma_x, \sigma_y, \rho) =
+	\frac{1}{2 \sigma_x \sigma_y \sqrt{1 - \rho^2}} \times \\	
+	\times exp \left( - \frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \overline{x})^2}{\sigma_x^2} - 2 \rho (x - \overline{x}) (y - \overline{y} + \frac{(y - \overline{y})^2}{\sigma_y^2}) \right] \right) 
+\end{multline}
+
+При этом компоненты $X$ и $Y$ также распределены нормально со средним квадратичным отклонением соответственно $sigma_x$ и $sigma_y$.
+
+\subsection{Корреляционный момент и коэффициент корреляции}
+
+\textit{Ковариацией} или \textit{корреляционным моментом} случайной величины называется матожидание произведения отклонений компонент случайной величины от её среднего:
+\begin{equation}
+	K_{XY} = cov(X, Y) = M[(X - \overline{x})(Y - \overline{y})]
+\end{equation}
+
+\textit{Коэффициентом корреляции} является нормированный на единицу корреляционный момент. Показывает меру линейной зависимости между величинами.
+
+\begin{equation}
+	\rho = \frac{K_{XY}}{\sigma_x \sigma_y}
+\end{equation}
+
+\subsection{Выборочные коэффициенты корреляции}
+\subsubsection{Выборочный коэффициент корреляции Пирсона}
+
+Для выборки двумерной случайной величины $\{x_i, y_i\}_{i=\overline{1,n}}$ наиболее естественным приближением корреляционного коэффициента является соотношение:
+
+\begin{equation}
+	r = \frac{\frac{1}{n} \displaystyle \sum_{i=1}^{n}{\left(x_i - \overline{x}\right)\left(y_i - \overline{y}\right)}}{\displaystyle \sum_{i=1}^{n}{\frac{1}{n}\left(x_i - \overline{x}\right)^2\frac{1}{n}\left(y_i - \overline{y}\right)^2}} = \frac{K}{s_X s_Y},
+\end{equation}
+где $K, s_X^2, s_Y^2$ -- выборочная ковариация и дисперсии соответствующих случайных величин.
