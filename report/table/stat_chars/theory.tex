@@ -1,0 +1,58 @@
+\subsection{Выборочные числовые характеристики}
+Для того, чтобы анализировать получаемые данные, вводятся характеристики положения -- такие функции, которые различными способами усредняют данные и демонстрируют общие закономерности, и характеристики рассеяния -- это характеристики, которые показывают насколько данные разбросаны относительно своих характеристик положения.
+
+\subsection{Характеристики положения}
+\begin{itemize}
+	\item Выборочное среднее
+	
+	\begin{equation}\label{mean}
+		\overline{x}=\displaystyle \sum_{i=1}^{n} {x_i}
+	\end{equation}
+	
+	\item Выборочная медиана
+	
+	\begin{equation}\label{med}
+		med x =
+		\begin{cases}
+		x_{(l+1)}, & n=2l + 1 \\
+		\frac{x_{(l)}+x_{(l+1)}}{2}, & n=2l
+		\end{cases}
+	\end{equation}
+
+	\item Полусумма экстремальных выборочных элементов
+
+	\begin{equation}\label{zr}	
+		z_R =\frac{x_{(1)}+x_{(n)}}{2}
+	\end{equation}
+	
+	\item Полусумма квартилей
+	
+	Выборочная квартиль порядка $p$ определяется как:
+	
+	$$z_p =
+	\begin{cases}
+	x_{([np]+1)}, & np \in \mathbb{Q} \backslash \mathbb{Z} \\
+	x_{(np)}, & np \in \mathbb{Z}
+	\end{cases}
+	$$
+	
+	\begin{equation}\label{zq}
+		z_Q =\frac{z_{1/4}+z_{3/4}}{2}
+	\end{equation}
+	
+	\item Усечённое среднее
+	
+	\begin{equation}\label{tr_mean}
+		z_{tr}=\frac{1}{n-2r}\displaystyle \sum_{i=r+1}^{n-r} x_{(i)}, r \approx \frac{n}{4}
+	\end{equation}
+\end{itemize}
+
+\subsection{Характеристики рассеяния}
+\begin{itemize}
+	\item Дисперсия
+	
+	\begin{equation}\label{disp}
+		D(X)=\frac{1}{n}\displaystyle \sum_{i=1}^{n}(x_i-\overline{x})^2
+	\end{equation}
+	
+\end{itemize}

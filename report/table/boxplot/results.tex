@@ -1,0 +1,80 @@
+\subsection{Боксплот Тьюки}
+Ниже представлены таблицы полученных характеристик положения заданных распределений и характеристик рассеяния для совокупности 1000 проведённых экспериментов
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{boxplot/Normal_boxplot}
+		\caption{Нормальное распределение}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{boxplot/Cauchy_boxplot}
+		\caption{Распределение Коши}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{boxplot/Laplace_boxplot}
+		\caption{Распределение Лапласа}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.7]{boxplot/Poisson_boxplot}
+		\caption{Распределение Пуассона}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.7]{boxplot/Uniform_boxplot}
+		\caption{Равномерное распределение}
+		\label{pic:pic_name}
+	\end{center}
+\end{figure}
+
+\subsection{Экспериментальная доля выбросов}
+
+\begin{table}[H]
+	\begin{center}
+		\input{table/trashdata.tex}
+		\caption{Экспериментальная доля выбросов}
+		\label{tabl:tabl_name}
+	\end{center}
+\end{table}
+
+
+\subsection{Теоретическая вероятность выбросов}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline			
+			Распределение & $P_{\text{в}}^{\text{Т}}$ (\ref{trashdata})
+			\\
+			\hline			
+			Normal & 0.007 \\
+			\hline
+			Cauchy & 0.156 \\
+			\hline
+			Laplace & 0.063 \\
+			\hline			
+			Poisson & 0.008 \\
+			\hline		
+			Uniform & 0 \\
+			\hline			
+		\end{tabular}
+		\caption{Теоретическая доля выбросов}
+		\label{tabl:tabl_name}
+	\end{center}
+\end{table}

@@ -47,7 +47,7 @@ def get_quartil(sample, p):
     return sample[math.ceil(sample.shape[0] * p + 0.5)]
 
 
-def table_to_tex(f, table: list, header):
+def table_to_tex(f, table: list, header=''):
     f.write('\\begin{tabular}{' + '|c' * len(table[0]) + '|}' + '\n')
     f.write(header)
     f.write('\hline\n')

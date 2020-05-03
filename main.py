@@ -1,6 +1,4 @@
-import part4
-import utils
-import numpy as np
+import part5
 
 
-part4.lab4()
+part5.lab5()
