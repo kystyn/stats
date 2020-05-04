@@ -100,7 +100,7 @@ def correlation_params():
                                       np.mean(np.asarray([el * el for el in quadrant1000]))])
             table.append(['$D(z)$', np.std(pearson1000), np.std(spearman1000), np.std(quadrant1000)])
 
-            if size != len_list[-1]:
+            if cor != correlation_list[-1]:
                 table.append(['', '', '', ''])
 
         utils.table_to_tex(open('report/table/correlation/' + str(size) + '.tex', 'w'), table)
@@ -145,7 +145,7 @@ def correlation_params():
                       np.mean(np.asarray([el * el for el in quadrant1000]))])
         table.append(['$D(z)$', np.std(pearson1000), np.std(spearman1000), np.std(quadrant1000)])
 
-        if cor != correlation_list[-1]:
+        if size != len_list[-1]:
             table.append(['', '', '', ''])
     utils.table_to_tex(open('report/table/correlation/mix.tex', 'w'), table)
 
