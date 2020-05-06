@@ -150,43 +150,42 @@ def correlation_params():
     utils.table_to_tex(open('report/table/correlation/mix.tex', 'w'), table)
 
 
-for size in len_list:
-    fig, axs = plt.subplots(1, 3, figsize=(9, 3))
+def ellipse_research():
+    for size in len_list:
+        fig, axs = plt.subplots(1, 3, figsize=(9, 3))
 
-    for ax, rho in zip(axs, correlation_list):
-        sample_d = np.random.multivariate_normal([0, 0], [[1, rho], [rho, 1]], size=size)
-        ax.scatter(sample_d[:, 0], sample_d[:, 1], color='cornflowerblue', s=3)
+        for ax, rho in zip(axs, correlation_list):
+            sample_d = np.random.multivariate_normal([0, 0], [[1, rho], [rho, 1]], size=size)
+            ax.scatter(sample_d[:, 0], sample_d[:, 1], color='red', s=3)
+            ax.set_xlim(min(sample_d[:, 0]) - 2, max(sample_d[:, 0]) + 2)
+            ax.set_ylim(min(sample_d[:, 1]) - 2, max(sample_d[:, 1]) + 2)
+            print(min(sample_d[:, 0]), max(sample_d[:, 0]))
+            print(min(sample_d[:, 1]), max(sample_d[:, 1]))
+            ax.axvline(c='grey', lw=1)
+            ax.axhline(c='grey', lw=1)
+            title = r'n = ' + str(size) + r', $\rho$  = ' + str(rho)
+            ax.set_title(title)
+            confidence_ellipse(sample_d[:, 0], sample_d[:, 1], ax)
+        fig.savefig('report/figure/correlation/' + str(size) + '.png', dpi=200)
+        plt.show()
+
+    fig, axs = plt.subplots(1, 3, figsize=(9, 3))
+    for ax, size in zip(axs, len_list):
+        sample_d = 0.9 * np.random.multivariate_normal([0, 0], [[1, 0.9], [0.9, 1]], size=size) +\
+                   0.1 * np.random.multivariate_normal([0, 0], [[10, -0.9], [-0.9, 10]], size=size)
+        ax.scatter(sample_d[:, 0], sample_d[:, 1], color='red', s=3)
         ax.set_xlim(min(sample_d[:, 0]) - 2, max(sample_d[:, 0]) + 2)
         ax.set_ylim(min(sample_d[:, 1]) - 2, max(sample_d[:, 1]) + 2)
         print(min(sample_d[:, 0]), max(sample_d[:, 0]))
         print(min(sample_d[:, 1]), max(sample_d[:, 1]))
         ax.axvline(c='grey', lw=1)
         ax.axhline(c='grey', lw=1)
-        title = r'n = ' + str(size) + r', $\rho$  = ' + str(rho)
+        title = r'mixed: n = ' + str(size)
         ax.set_title(title)
         confidence_ellipse(sample_d[:, 0], sample_d[:, 1], ax)
-    fig.savefig('N_2d_' + str(size) + '.png', dpi=200)
+    fig.savefig('report/figure/correlation/mix.png', dpi=200)
     plt.show()
 
 
-# fig, axs = plt.subplots(1, 3, figsize=(9, 3))
-# for ax, size in zip(axs, len_list):
-#     size = 2
-#     sample_d = 0.9 * np.random.multivariate_normal([0, 0], [[1, 0.9], [0.9, 1]], size=size) \
-#                + 0.1 * np.random.multivariate_normal([0, 0], [[10, -0.9], [-0.9, 10]], size=size)
-#     ax.scatter(sample_d[:, 0], sample_d[:, 1], color='cornflowerblue', s=3)
-#     ax.set_xlim(min(sample_d[:, 0]) - 2, max(sample_d[:, 0]) + 2)
-#     ax.set_ylim(min(sample_d[:, 1]) - 2, max(sample_d[:, 1]) + 2)
-#     print(min(sample_d[:, 0]), max(sample_d[:, 0]))
-#     print(min(sample_d[:, 1]), max(sample_d[:, 1]))
-#     ax.axvline(c='grey', lw=1)
-#     ax.axhline(c='grey', lw=1)
-#     title = r'mixed: n = ' + str(size)
-#     ax.set_title(title)
-#     confidence_ellipse(sample_d[:, 0], sample_d[:, 1], ax)
-# fig.savefig('mixed_2d.png', dpi=200)
-# plt.show()
-
-
 def lab5():
-    correlation_params()
+    ellipse_research()
