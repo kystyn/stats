@@ -1,4 +1,4 @@
-import part5
+import part6
 
 
-part5.lab5()
+part6.lab6()

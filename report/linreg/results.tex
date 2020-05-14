@@ -1,51 +1,45 @@
-\subsection{Выборочные коэффициенты корреляции}
+\subsection{Оценки коэффициентов линейной регрессии}
 
-\begin{table}[H]
-	\begin{center}
-		\input{table/correlation/20.tex}
-		\caption{Двумерное нормальное распределение, $n = 20$}
-	\end{center}
-\end{table}
-
-\begin{table}[H]
-	\begin{center}
-		\input{table/correlation/60.tex}
-		\caption{Двумерное нормальное распределение, $n = 60$}
-	\end{center}
-\end{table}
-
-\begin{table}[H]
-	\begin{center}
-		\input{table/correlation/100.tex}
-		\caption{Двумерное нормальное распределение, $n = 100$}
-	\end{center}
-\end{table}
-
-\begin{table}[H]
-	\begin{center}
-		\input{table/correlation/mix.tex}
-		\caption{Смесь нормальных распределений}
-	\end{center}
-\end{table}
-
-\subsection{Эллипсы рассеивания}
+\subsubsection{Выборка без возмущений}
+\begin{itemize}
+	\item Критерий наименьших квадратов:
+	$$
+	\begin{matrix}
+		\hat{a}=1.78 & \hat{a}=1.83
+	\end{matrix}
+	$$
+	
+	\item Критерий наименьших модулей:
+	$$
+	\begin{matrix}
+	\hat{a}=1.73 & \hat{a}=2.02
+	\end{matrix}
+	$$
+\end{itemize}
 
 \begin{figure}[H]
-	\includegraphics{correlation/20}
-	\caption{Двумерное нормальное распределение, $n = 20$}
+	\includegraphics{linreg/no_dev}
+	\caption{Выборка без возмущений}
 \end{figure}
 
-\begin{figure}[H]
-	\includegraphics{correlation/60}
-	\caption{Двумерное нормальное распределение, $n = 60$}
-\end{figure}
+\subsubsection{Выборка с возмущениями}
+\begin{itemize}
+	\item Критерий наименьших квадратов:
+	$$
+	\begin{matrix}
+	\hat{a}=1.95 & \hat{a}=0.76
+	\end{matrix}
+	$$
+	
+	\item Критерий наименьших модулей:
+	$$
+	\begin{matrix}
+	\hat{a}=1.64 & \hat{a}=1.74
+	\end{matrix}
+	$$
+\end{itemize}
 
 \begin{figure}[H]
-	\includegraphics{correlation/100}
-	\caption{Двумерное нормальное распределение, $n = 100$}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics{correlation/mix}
-	\caption{Смесь нормальных распределений}
+	\includegraphics[scale=0.5]{linreg/dev}
+	\caption{Выборка с возмущениями}
 \end{figure}
