@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
+import math
 
 
 def get_lsm(x, y):
@@ -10,6 +11,11 @@ def get_lsm(x, y):
     y_med = np.mean(y)
     b1_mnk = (xy_med - x_med * y_med) / (x_2_med - x_med * x_med)
     b0_mnk = y_med - x_med * b1_mnk
+
+    dev = 0
+    for i in range(len(x)):
+        dev += (b0_mnk + b1_mnk * x[i] - y[i]) ** 2
+    print(f'Невязка МНК: {math.sqrt(dev)}')
     return b0_mnk, b1_mnk
 
 
@@ -51,11 +57,20 @@ def lab6():
     lsm_0, lsm_1 = get_lsm(x, y)
     print(f" МНК, без возмущений: {lsm_0}, {lsm_1}")
     lam_0, lam_1 = get_lam(x, y)
+
+    dev = 0
+    for i in range(len(x)):
+        dev += math.fabs(lam_0 + lam_1 * x[i] - y[i])
+    print(f'Невязка МНМ: {dev}')
     print(f" МНM, без возмущений: {lam_0}, {lam_1}")
 
     lsm_02, lsm_12 = get_lsm(x, y2)
     print(f" МНК, с возмущениями: {lsm_02}, {lsm_12}")
     lam_02, lam_12 = get_lam(x, y2)
+    dev = 0
+    for i in range(len(x)):
+        dev += math.fabs(lam_02 + lam_12 * x[i] - y[i])
+    print(f'Невязка МНМ: {dev}')
     print(f" МНM, с возмущениями: {lam_02}, {lam_12}")
 
     draw_res(lsm_0, lsm_1, lam_0, lam_1, x, y, 'Выборка без возмущений', 'report/figure/no_dev')
