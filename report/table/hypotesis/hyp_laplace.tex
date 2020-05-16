@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[english,russian]{babel}
+
+\begin{document}
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline i & Границы $\Delta_i$ & $n_i$ & $p_i$ & $np_i$ & $n_i - np_i$ & $\frac{(n_i - np_i)^2}{np_i}$\\\hline
+1 & -1.89, -0.69 & 0.00 & 0.0000 & 0.00 & -0.00 & 0.00\\
+\hline
+2 & -0.69, 0.51 & 0.00 & 0.0071 & 0.18 & -0.18 & 0.18\\
+\hline
+3 & 0.51, 1.71 & 7.00 & 0.1998 & 4.99 & 2.01 & 0.81\\
+\hline
+4 & 1.71, 2.91 & 13.00 & 0.5863 & 14.66 & -1.66 & 0.19\\
+\hline
+5 & 2.91, -3.09 & 5.00 & 0.1998 & 4.99 & 0.01 & 0.00\\
+\hline
+6 & -3.09, -1.89 & 0.00 & 0.0071 & 0.18 & -0.18 & 0.18\\
+\hline
+7 & -1.89, -0.69 & 0.00 & 0.0000 & 0.00 & -0.00 & 0.00\\
+\hline
+$\Sigma$ & & 25 & 1.0000 & 25.00 & 0.00 & 1.35 \\
+\hline
+\end{tabular}
+\caption{Распределение Лапласа}
+\end{center}
+\end{table}
+
+Получили, что $\chi_{\text{В}}^2 < \chi_{0.95}^2(6)$, следовательно гипотеза о нормальности принимается.
+\end{document}
