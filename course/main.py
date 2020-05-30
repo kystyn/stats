@@ -7,6 +7,7 @@ from matplotlib import pyplot
 from frequency_processing import calculate_frequency
 from sawtooth_detection import get_sawtooth_indexes
 from math import sqrt
+import seaborn as sns
 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(WORK_DIR)
@@ -181,7 +182,7 @@ def process_periods():
         pyplot.legend(char.mod('%d', sawtooth_signals_numbers))
         pyplot.xlabel('Time to fault, s')
         pyplot.ylabel('Extremum distance, arb. un.')
-        pyplot.title('Periods of ' + sht_file_name + ' data')
+        pyplot.title('Extremum distance of ' + sht_file_name + ' data')
         if not os.path.exists(OUT_DIR):
             os.makedirs(OUT_DIR)
         fig.savefig(OUT_DIR + 'period_sht' + str(sht_number) + '.png')
@@ -258,7 +259,7 @@ def process_time():
 
     dataplot = []
     fig = pyplot.figure()
-    for sht_data in [data['sht_data'][i] for i in [0, 1, -1, -2, -4, -5]]:
+    for sht_data in [data['sht_data'][i] for i in range(len(data['sht_data']))]: #[4, 5, 8, 9] [0, 1, -1, -2, -4, -5]
         sht_number = sht_data[0]
 
         sht_file_name = 'sht' + str(sht_number) + '.SHT'
@@ -311,13 +312,14 @@ def process_time():
     #pyplot.xlim(l_border_t, r_border_t)
     #pyplot.ylim(b_border_f - 50, u_border_f + 50)
 
-    pyplot.plot([i for i in range(len(dataplot))], dataplot, '-o', markersize=3)
-    pyplot.xlabel('Number')
-    pyplot.ylabel('Time to fault, s')
+    sns.distplot(dataplot, bins=len(dataplot), kde=False, color='blue')
+    #pyplot.plot([i for i in range(len(dataplot))], dataplot, '-o', markersize=3)
+    pyplot.xlabel('Time to fault, s')
+    pyplot.ylabel('Event count per $\Delta$ T')
     pyplot.title('Times')
     if not os.path.exists(OUT_DIR):
         os.makedirs(OUT_DIR)
-    fig.savefig(OUT_DIR + 'times_sht2.png')
+    fig.savefig(OUT_DIR + 'times_sht.png')
 
     dataplot = np.asarray(dataplot)
     print(f'mean: {np.mean(dataplot)} \ndev: {np.std(dataplot)}')
