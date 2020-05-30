@@ -9,7 +9,7 @@
 \usepackage{amsmath, etoolbox}
 \usepackage{graphicx}
 \usepackage{float}
-\graphicspath{{figure/}}
+\graphicspath{{../out/}}
 \DeclareGraphicsExtensions{.png,.jpg}
 
 \usepackage{fancyhdr}
@@ -72,34 +72,10 @@
 \listoftables
 \newpage
 
-\section{Постановка задачи}
-%\input{problem_common.tex}
-\begin{enumerate}
-\input{correlation/problem.tex}
-\input{linreg/problem.tex}
-\input{hypotesis/problem.tex}
-\input{intervals/problem.tex}
-\end{enumerate}
-
-\section{Теория}
-\input{correlation/theory.tex}
-\input{linreg/theory.tex}
-\input{hypotesis/theory.tex}
-\input{intervals/theory.tex}
+\input{problem.tex}
 \input{impl.tex}
-
-\section{Результаты}
-\input{correlation/results.tex}
-\input{linreg/results.tex}
-\input{hypotesis/results.tex}
-\input{intervals/results.tex}
-
-\section{Обсуждение}
-
-\input{correlation/discuss.tex}
-\input{linreg/discuss.tex}
-\input{hypotesis/discuss.tex}
-\input{intervals/discuss.tex}
+\input{results.tex}
+\input{discuss.tex}
 
 
 \input{literature.tex}
